@@ -2,14 +2,14 @@ package cz.martinbayer.analyser.processor.filterproc.level;
 
 import org.eclipse.swt.events.MouseEvent;
 
-import cz.martinbayer.analyser.impl.ConcreteData;
+import cz.martinbayer.analyser.impl.ConcreteXMLog;
 import cz.martinbayer.analyser.processor.filterproc.level.paletteitem.FilterByLevelPaletteItem;
 import cz.martinbayer.analyser.processor.filterproc.level.processor.FilterByLevelProcLogic;
 import cz.martinbayer.analyser.processors.IProcessorItemWrapper;
 import cz.martinbayer.analyser.processors.IProcessorLogic;
 import cz.martinbayer.analyser.processors.IProcessorsPaletteItem;
 
-public class FilterLevelWrapper implements IProcessorItemWrapper<ConcreteData> {
+public class FilterLevelWrapper implements IProcessorItemWrapper<ConcreteXMLog> {
 
 	private FilterByLevelProcLogic logic;
 	private FilterByLevelPaletteItem item;
@@ -20,7 +20,7 @@ public class FilterLevelWrapper implements IProcessorItemWrapper<ConcreteData> {
 	}
 
 	@Override
-	public IProcessorLogic<ConcreteData> getProcessorLogic() {
+	public IProcessorLogic<ConcreteXMLog> getProcessorLogic() {
 		return logic;
 	}
 
@@ -36,7 +36,7 @@ public class FilterLevelWrapper implements IProcessorItemWrapper<ConcreteData> {
 	}
 
 	@Override
-	public IProcessorItemWrapper<ConcreteData> getInstance() {
+	public IProcessorItemWrapper<ConcreteXMLog> getInstance() {
 		return new FilterLevelWrapper();
 	}
 
