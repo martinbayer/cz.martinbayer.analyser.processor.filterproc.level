@@ -1,11 +1,11 @@
 package cz.martinbayer.analyser.processor.filterproc.level.processor;
 
-import cz.martinbayer.analyser.impl.ConcreteXMLog;
+import cz.martinbayer.analyser.impl.ConcreteE4LogsisLog;
 import cz.martinbayer.analyser.processors.exception.ProcessorFailedException;
 import cz.martinbayer.analyser.processors.model.ELogLevel;
 import cz.martinbayer.analyser.processors.types.LogProcessor;
 
-public class FilterByLevelProcessor extends LogProcessor<ConcreteXMLog> {
+public class FilterByLevelProcessor extends LogProcessor<ConcreteE4LogsisLog> {
 
 	/**
 	 * 
@@ -16,7 +16,7 @@ public class FilterByLevelProcessor extends LogProcessor<ConcreteXMLog> {
 
 	@Override
 	protected void process() throws ProcessorFailedException {
-		for (ConcreteXMLog d : logData.getLogRecords()) {
+		for (ConcreteE4LogsisLog d : logData.getLogRecords()) {
 			if (d.getLogLevel() == actualLevel) {
 				d.setRemoved(true);
 			}
