@@ -13,4 +13,10 @@ Bundle-ActivationPolicy: lazy
 Require-Bundle: cz.martinbayer.analyser.processor,
  cz.martinbayer.analyser;bundle-version="1.0.0",
  org.eclipse.swt,
- cz.martinbayer.utils;bundle-version="1.0.0"
+ cz.martinbayer.utils;bundle-version="1.0.0",
+ org.eclipse.jface,
+ org.eclipse.jface.databinding,
+ org.eclipse.core.databinding.observable,
+ org.eclipse.core.databinding.beans,
+ org.eclipse.core.databinding.property;bundle-version="1.4.200",
+ org.eclipse.core.databinding
