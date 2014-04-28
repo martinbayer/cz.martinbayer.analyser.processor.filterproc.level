@@ -1,5 +1,6 @@
 package cz.martinbayer.analyser.processor.filterproc.level;
 
+import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.widgets.Display;
 
@@ -24,30 +25,40 @@ public class FilterLevelWrapper implements
 	private FilterByLevelDialogModel model = new FilterByLevelDialogModel();
 
 	public FilterLevelWrapper() {
-		logic = new FilterByLevelProcLogic();
-		item = new FilterByLevelPaletteItem();
 	}
 
 	@Override
 	public IProcessorLogic<ConcreteE4LogsisLog> getProcessorLogic() {
+		if (logic == null) {
+			logic = new FilterByLevelProcLogic();
+		}
 		return logic;
 	}
 
 	@Override
 	public IProcessorsPaletteItem getProcessorPaletteItem() {
+		if (item == null) {
+			item = new FilterByLevelPaletteItem();
+		}
 		return item;
 	}
 
 	@Override
 	public void mouseDoubleClicked(MouseEvent e) {
 		FilterByLevelDialog dialog = new FilterByLevelDialog(Display
-				.getDefault().getActiveShell(), model, logic);
+				.getDefault().getActiveShell(), model,
+				(FilterByLevelProcLogic) getProcessorLogic());
 		dialog.open();
 	}
 
 	@Override
 	public IProcessorItemWrapper<ConcreteE4LogsisLog> getInstance() {
 		return new FilterLevelWrapper();
+	}
+
+	@Override
+	public void setContext(IEclipseContext ctx) {
+		Activator.setEclipseContext(ctx);
 	}
 
 }
